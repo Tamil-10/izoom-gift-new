@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@import "~ag-grid/dist/styles/ag-grid.css";
+@import "~ag-grid/dist/styles/ag-theme-balham.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {background-color: #f2f5f2;}
+.bg {
+    /* The image used */
+    background-image: url("assets/bg.png");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,17 @@
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <div id="errorDiv" class="form-group" style="background-color: #0d5d17;text-align:center">
+          <h3>
+            <font color="white">Payment</font>
+          </h3>
+        </div>
+      </div>
+    </div>
+
+<form novalidate (ngSubmit)="buy($event)" [formGroup]="stripeTest">
+  <input type="text" formControlName="name" placeholder="Jane Doe">
+  <div id="card-element" class="field"></div>
+  <button type="submit">
+    BUY
+  </button>
+</form>

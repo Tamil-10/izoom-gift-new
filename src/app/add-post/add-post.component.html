@@ -1,0 +1,53 @@
+
+<div class="navbar admin_header ">
+    <div class="container">
+      <a class="navbar-brand" >Izoom Studios</a>
+
+      <div class="access_links">
+      <a class="home" href="">Home</a>&nbsp;&nbsp;
+      <a class="logout" *ngIf="adminUser!='UNKNOWN'"[routerLink]="['/login']" >Logout</a>
+    </div>
+    </div>
+  </div>
+  
+
+<div class="auth-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-xs-12">
+        <h1 class="text-xs-center">Add Post</h1>
+        <form (ngSubmit)="addPost()">
+          <fieldset [disabled]="isSubmitting">
+            <fieldset class="form-group">
+              <label class="forLabel">Youtube</label>
+              <input name="youtube"
+              [(ngModel)]="model.youtube" 
+                placeholder="Youtube Link "
+                class="form-control col-md-12"
+                type="text"  required />
+                <label style="float: right;">(Note. Seperate youtube links by using comma symbol ',' )</label>
+            </fieldset>
+            <fieldset class="form-group">
+                <label class="forLabel">User</label>
+                <select class="form-control form-control-md" name="userid" [(ngModel)]="model.userid" required aria-placeholder="Select User">
+                    <option [ngValue]="undefined" disabled>Select User</option>
+                  <option *ngFor="let item of userList" [value]="item.id">
+                    {{item.name}}
+                  </option>
+    
+                  </select>
+            </fieldset>
+            <button class="btn btn-lg btn-primary pull-xs-right"  type="submit">
+              Add Post
+            </button>
+          </fieldset>
+        </form>
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+

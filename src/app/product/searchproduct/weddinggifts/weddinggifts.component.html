@@ -1,0 +1,140 @@
+
+
+<app-header></app-header>
+<!-- <span *ngIf="filterId==4"><app-header></app-header></span> -->
+<div *ngIf="filterId != 4" class="site-wrapper " id="site-wrapper">
+  <div class="selection-bar-w absolute top-0-left-0 full-width">
+    <div class="selection-bar-w">
+        <div class="selection-bar selection-bar row no-margin">
+            <ul class="top-bar-links">
+              <li><button type="button" [value]="1" id="startBtn" (click)="valuechange($event.target.value)">Kids</button></li>
+              <li><button type="button" [value]="2" id="startBtn" (click)="valuechange($event.target.value)" >Men</button></li>
+              <li><button type="button" [value]="3" id="startBtn" (click)="valuechange($event.target.value)">Women</button></li>             
+              <!-- <li ><app-filter  (filterPrice)='filterPrice($event)'></app-filter></li>  -->
+              <li>  <input matInput placeholder="search here" type="text" [(ngModel)]="term"></li> 
+              <li>
+                <app-filter  (filterPrice)='filterPrice($event)'></app-filter>
+              </li> 
+              <li><div class="btn btn-reset" (click)="reset_filter()">Reset</div></li>
+            </ul>
+           
+            <ul class="right hide-on-med-and-down">
+              
+          
+          </ul>          
+            
+        </div>
+        
+    </div>
+</div>
+</div>
+
+<br><br><br>
+<div class="row">
+  <div class="form-group col-sm-12">
+    <div id="errorDiv" class="form-group" style="background-color: #0d5d17;text-align:center">
+      <h3>
+        <font color="white">{{successMsg}}</font>
+      </h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <button (click)="valuechanged()"></button>
+  <div class="row isotope-grid" *ngIf="productList">
+      <!-- Block2 --> 
+       <li *ngFor="let product of (productList | priceFilter:priceMinFilter:priceMaxFilter | paginate: { itemsPerPage: 10, currentPage: p } |filter:term) let i = index" class="forlist">
+        
+<div *ngIf="product != -1"> 
+        
+            <!-- <div>{{ product.type | filterBy :2 }}</div> -->
+            <!-- <div *ngFor="let a of arr">
+              <a class="item item-icon-right font-12">
+                 <b>{{number}}</b>
+              </a>
+          </div> -->
+             
+          <!-- <div *ngIf="product! == -1"> -->
+        <div class="block2-pic hov-img0" >
+          
+          <img [src]="imgdatapreffix+product.content_type+imgdatasuffix+product.content | safehtml"  class="forimage" alt="IMG-PRODUCT">
+      
+          <a class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+       <!--  <label *ngIf="product.available_quantity<=10" class="control-label">{{product.available_quantity}}</label><br/> -->
+                <!-- <label class="control-label">Quantity:</label> -->
+                
+                  <!-- <div class="row">
+                    <div class="col-sm-1">
+                        <input type="text" readonly  class="form-control col-1 text-center bg-white font-weight-bold " id="counterval" value="{{counter}}" >
+                    </div>         
+                        <a class="btn btn-primary btn-xs" (click)="decrement()" role="button">
+                            -
+                        </a>
+                        <div class="col-sm-1"></div>
+                        <a class="btn btn-primary btn-xs" (click)="increment()"  role="button">
+                            +
+                        </a>            
+                </div> -->
+                <div id='myform'>
+                  <input type='button' value='-' (click)="decrement(product)"  class='qtyminus'>
+                      <input name="qty_{{product.id}}" id="qty_{{product.id}}" type="text"  class="qty" [ngModel]="counter" readonly >
+                      <input type='button' value='+' (click)="increment(product)" class='qtyplus'>
+                      
+                    </div>
+    
+                <!-- <select name="qty_{{product.id}}" id="qty_{{product.id}}">
+                  <option value="1">1</option>   
+                  <option value="2">2</option>   
+                  <option value="3">3</option>   
+                  <option value="4">4</option>   
+                  <option value="5">5</option>   
+                </select><br/> -->
+                <button type="button" id="startBtn" (click)="addToCart(product)" style="height: 40px;
+width: 110px;" >Add To Cart</button>
+        
+          </a>
+        </div>
+        <div class="block2-txt flex-w flex-t p-t-14">
+          <div class="block2-txt-child1 flex-col-l ">
+            <a [routerLink]="['/ProductDetailComponent', product.id]"  class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+            {{product.name}}
+            <br>
+            <span class="stext-105 cl3">
+              {{getCurrency()}} {{product.price}}
+            </span>
+           
+            </a>
+           
+          </div>
+         
+     </div>
+     
+</div><p *ngIf="product == -1">No results found </p>
+
+     </li>
+    
+    
+<!--      
+     <div *ngIf="product == 0 || productList.length == 0">
+      No orders found
+  </div>
+     </li> -->
+   
+  </div>
+  <!-- <div *ngIf="productList?.length==0"><p>no products</p></div> -->
+  <br><br>
+   <pagination-controls class="pagination-controls" (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <!-- <div id="cart-button">
+    <button style="outline: none;" mat-raised-button color="primary" mat-icon-button id = "cart-button2" [routerLinkActive]="['active']" [routerLink]="['/ordersummary']">          
+      <mat-icon>shopping_cart</mat-icon><app-cart></app-cart>
+    </button>
+  </div> -->
+<!-- <div class="row">
+  <div class="form-group col-sm-9">
+  </div>
+  <div class="form-group col-sm-3">
+    <button class="orderbutton" type="button" (click)="proceedToOrderSummary()"><span>Proceed To Order Summary</span></button>
+  </div> 
+</div> -->

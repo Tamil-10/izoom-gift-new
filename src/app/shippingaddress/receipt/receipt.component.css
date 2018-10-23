@@ -1,0 +1,27 @@
+
+body {
+	
+	padding: 0px;
+}
+#albums{
+background: threedlightshadow;
+color: black;
+font-size: x-large;
+font-family: fantasy;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+.Latest{
+padding-top: 10px;
+margin-left: 20px;
+}
+#footer{
+margin-top: 200px;
+}
+#txxt{
+margin-top: 150px;
+margin-bottom: 150px;
+}
+.cont {
+	margin-top: 90px;
+}

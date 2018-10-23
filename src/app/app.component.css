@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 0px;
+}
+
+.topcorner{
+   position:absolute;
+   top:0;
+   right:180px;
+  }
+.nav-item{
+	font-size: 0.9rem;
+}

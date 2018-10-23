@@ -1,0 +1,233 @@
+// .product-detail .product-head {
+//   padding: 10px;
+//   font-weight: 500;
+// }
+
+// .product-detail .table th {
+//   width: 152px;
+// }
+
+// .product-ship {
+//   height: 15rem;
+// }
+/////////lastone
+@media (max-width: 640px){
+.single-top {
+    width: 50%;
+    margin: 0 auto;
+    float: none;
+}
+}
+@media (max-width: 991px){
+.single-top {
+    width: 47%;
+    
+    margin-right: 0em;
+}
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.top-sing {
+    margin-bottom: 7em;
+}
+.single-top {
+    width: 63%;
+    margin-right: 5em;
+}
+.flexslider {
+    margin: 0 0 10px;
+    background: #ffffff;
+    border: 4px solid #ffffff;
+    position: relative;
+    zoom: 1;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+    -o-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.flexslider {
+    margin: 0;
+    padding: 0;
+}
+.flex-viewport {
+    max-height: 450px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    border: 1px solid rgb(246, 246, 246);
+}
+.single-para h4 {
+    color: #000;
+    font-size: 2em;
+    font-family: 'Dosis-Medium';
+}
+.single-para h5 {
+    color: #ed645c;
+    font-size: 2em;
+    border-bottom: 1px solid #C4C3C3;
+    padding: 1em 0;
+    margin: 1em 0 0.5em;
+}
+p.para {
+    font-size: 1em;
+    color: #BDBCBC;
+    line-height: 1.8em;
+}
+
+.single-para h4 {
+    color: #000;
+    font-size: 2em;
+    font-family: 'Dosis-Medium';
+}
+
+
+
+
+
+
+
+
+.product-detail .product-head {
+    padding: 10px;
+    font-weight: 500;
+}
+.product-detail .table th {
+    width: 152px;
+}
+.products
+{
+	width: 100%;
+	background: #FFFFFF;
+	z-index: 2;
+	padding-top: 89px;
+}
+.products_title
+{
+	font-size: 30px;
+	font-weight: 500;
+	color: #1b1b1b;
+}
+.product_grid
+{
+	margin-top: 88px;
+}
+.product
+{
+	width: calc((100% - 90px) / 4);
+	margin-bottom: 59px;
+}
+.product_image
+{
+	width: 100%;
+}
+.product_image img
+{
+	max-width: 100%;
+}
+.product_content
+{
+	width: 100%;
+	padding-top: 36px;
+	padding-bottom: 38px;
+}
+.product_title a
+{
+	font-size: 18px;
+	font-weight: 500;
+	color: #1b1b1b;
+	line-height: 1.1;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.product_title a:hover
+{
+	color: #e95a5a;
+}
+.product_price
+{
+	font-size: 16px;
+	font-weight: 500;
+	color: #6c6a74;
+	line-height: 0.75;
+	margin-top: 13px;
+}
+.product_extra
+{
+	position: absolute;
+	top: 0;
+	left: 54px;
+	width: 66px;
+	height: 36px;
+	text-align: center;
+	-webkit-transform-origin: top left;
+	-moz-transform-origin: top left;
+	-ms-transform-origin: top left;
+	-o-transform-origin: top left;
+	transform-origin: top left;
+	transform: rotate(90deg);
+}
+.product_extra a
+{
+	display: block;
+	font-size: 16px;
+	font-weight: 500;
+	color: #FFFFFF;
+	line-height: 36px;
+}
+.product_new
+{
+	background: #6c6a74;
+}
+.product_sale
+{
+	background: #e95a5a;
+}
+.product_hot
+{
+	background: #1b1b1b;
+}
+#myform {
+  height: 26px;
+}
+.qty {
+  width: 40px;
+  font-family: fantasy;
+  height: 25px;
+  text-align: center;
+}
+input.qtyplus { width:25px; height:25px;outline-style: none;	border: 0;color: #fff; background-color: green;}
+input.qtyminus { width:25px; height:25px;outline-style: none;	border: 0;color: #fff; background-color: crimson;}
+
+#cart-button {
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+  
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    
+  }
+  
+  .cart-button2 {
+    width:60px;
+    height:60px;
+    position:fixed;
+    bottom:40px;
+    right:40px;
+    margin-top:22px;
+  }

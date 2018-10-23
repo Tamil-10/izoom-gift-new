@@ -1,0 +1,185 @@
+<!-- <div class="modal-body">
+  <div class="well">
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <div id="errorDiv" class="form-group" style="background-color: #0d5d17;text-align:center">
+          <h3>
+            <font color="white">Order Summary</font>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let product of orderList; let i = index">
+      <div class="groove">
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <img [src]="imgdatapreffix+product.content_type+imgdatasuffix+product.content" /><br/>
+          </div>
+          <div class="form-group col-sm-3">
+            <label class="control-label">Product Name: {{product.name}}</label><br/>
+            <label class="control-label">Product Description: {{product.description}}</label><br/>
+            <label class="control-label">Product Price:  {{product.price}}</label><br/>
+            <label class="control-label">Quantity: {{product.quantity}}</label><br/>
+          </div>
+          <div class="form-group col-sm-3">
+            <label class="control-label">{{product.price }} * {{product.quantity }} = Rs: {{product.price * product.quantity}}</label><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-9">
+        <h1>Total Amount (Including Tax)</h1>
+
+
+      </div>
+      <div class="form-group col-sm-3">
+        <label class="control-label"><h1> Rs: {{total}}</h1></label><br/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-9">
+      </div>
+      <div class="form-group col-sm-3">
+        <button type="button" (click)="proceedToPayment()">Proceed To Checkout</button>
+      </div>
+    </div>
+  </div>
+</div> --><app-header></app-header>
+<div class="cart-page-container">
+  <div class="cart-page-header">
+      <h1>Shopping Cart</h1>
+  </div>
+  <div class="cart-page-content" *ngIf="orderList?.length > 0">
+      <div class="cart-item-header cart-item-row">
+          <div class="cart-item-cell cart-item-product"><span>Product</span></div>
+          <div class="cart-item-cell cart-item-quantity"><span>Quantity</span></div>
+          <div class="cart-item-cell cart-item-total"><span>Total</span></div>
+          <div class="cart-item-cell cart-item-action"><span>Action</span></div>
+      </div>
+      <div class="cart-item-row" *ngFor="let product of orderList;let i = index">
+          <div class="cart-item-cell cart-item-product">
+              <img [src]="imgdatapreffix+product.content_type+imgdatasuffix+product.content" class="cart-item-thumbnail" />
+             
+              <div class="cart-item-info">                               
+                  <div class="cart-item-title">{{product.name}}</div>
+              </div>
+          </div>
+          <div class="cart-item-cell cart-item-quantity">
+              <quantity-control [quantity]="product.quantity" (onChange)="changeQuantity(product,$event)"></quantity-control>
+          </div>
+          <div class="cart-item-cell cart-item-total">
+              <div class="item-price">
+                Rs: {{product.price * product.quantity}}
+              </div>
+          </div>
+          <div class="cart-item-cell cart-item-action">
+              <div class="item-remove" (click)="removeFromCart(i)">X</div>
+          </div>
+      </div>
+      <div class="row cart-total">
+          <div class="col-lg-offset-6">
+              <!-- <div class="cart-total-row row">
+                  <div class="col-md-6 cart-total-label">
+                      Cart overview
+                  </div>
+                  <div class="col-md-6 cart-total-value"></div>
+              </div> -->
+              <!-- <div class="cart-total-row row">
+                  <div class="col-md-6 cart-total-label">
+                      subtotal
+                  </div>
+                  <div class="col-md-6 cart-total-value">
+                      {{total | currency :'INR':true}}
+                  </div>
+              </div> -->
+              
+                 
+              <div class="cart-total-row row">
+                   
+                  <div class="col-md-6 cart-total-label">
+                      Total
+                  </div>
+                  <div class="col-md-6 cart-total-value cart-total-price">
+                    {{totalPrice | currency :'INR':true}}
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="cart-buttons">
+          <div class="continue-shopping"><a [routerLink]="['/gifts']">continue shopping</a></div>
+          <div class="checkout-button button button-primary button-large" *ngIf="cookieValue!='UNKNOWN'" [routerLink]="['/shippingaddress']">Checkout ({{totalPrice | currency :'INR':true}})</div>
+          <div class="checkout-button button button-primary button-large" *ngIf="cookieValue=='UNKNOWN'"  [routerLink]="['/login']">Checkout ({{totalPrice | currency :'INR':true}})</div>
+      </div>
+  </div>
+  <div class="cart-page-content" *ngIf="orderList?.length == 0 || orderList?.length ==''|| orderList?.length == null">
+      <h4>Your cart is empty.</h4>
+      <a [routerLink]="['/gifts']">Go shopping</a>
+  </div>
+</div>
+
+
+
+
+<!-- 
+ <ng-container>
+    <p>
+        You have items in your shopping cart. 
+        <button *ngIf="shoppingCart.items.length > 0" 
+            (click)="clearShoppingCart()" 
+            md-button color="accent"
+        >Clear Shopping Cart</button>
+    </p>
+    
+    <div  class="tableWrapper mat-elevation-z8">
+        mdSort directive is here just to apply some css, no sorting!
+        <table mdSort>
+            <thead>
+                <tr>
+                    <th></th> just a placement for product thumbnail
+                    <th md-sort-header="product">Product</th>
+                    <th md-sort-header="quantity">Quantity</th>
+                    <th md-sort-header="price">Price</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                <tr *ngFor="let product of orderList; let i = index">
+                    <td>
+                        <div  class="itemThumbnail">
+                            <img [src]="imgdatapreffix+product.content_type+imgdatasuffix+product.content" />
+                        </div>
+                    </td>
+                    <td>{{product.name}}</td>
+                    <td>
+                        <app-product-quantity
+                            [product]="eachItem"
+                            [shoppingCart]="shoppingCart">
+                        </app-product-quantity>
+                    </td>
+                    <td>{{product.price }} * {{product.quantity }} = Rs: {{product.price * product.quantity}}</td>
+                </tr>
+            </tbody>
+            <br>
+            <tfoot>
+                <tr>
+                    <td></td> just a placement for product thumbnail
+                    <td></td>
+                    <td></td>
+                    <td class="totalPrice">
+                        Total: Rs: {{total}}
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <br>
+    <a 
+        *ngIf="shoppingCart.items.length > 0"
+        routerLink="/check-out"  
+        md-raised-button 
+        color="accent"
+    >Check Out</a>
+</ng-container>  -->

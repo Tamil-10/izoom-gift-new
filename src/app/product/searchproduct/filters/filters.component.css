@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .artboard {
+    width: 340px;
+    height: 340px;
+    border: 20px solid #323232;
+    background-image: repeating-linear-gradient(-45deg, #fefefe 0px, #fefefe 10px, #3e3e3e 11px, #3e3e3e 20px), repeating-linear-gradient(225deg, #fefefe 0px, #fefefe 10px, #3e3e3e 11px, #3e3e3e 20px);
+    background-repeat: no-repeat;
+    background-size: 340px 170px;
+    background-position: -170px 0, -170px 170px;
+    -webkit-animation: animateBg 5s linear infinite;
+            animation: animateBg 5s linear infinite;
+    position: relative;
+    will-change: background-position;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  .artboard:after {
+    content: "";
+    position: absolute;
+    height: 340px;
+    width: 340px;
+    background: #fd8f6e;
+    left: 0%;
+    top: 0%;
+    margin: -85px;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    box-shadow: 170px 170px 0px 0px #e73dea;
+  }
+  .artboard:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 170px;
+    height: 100%;
+    background-image: repeating-linear-gradient(45deg, #fefefe 0px, #fefefe 10px, #3e3e3e 11px, #3e3e3e 20px), repeating-linear-gradient(-225deg, #fefefe 0px, #fefefe 10px, #3e3e3e 11px, #3e3e3e 20px);
+    background-repeat: no-repeat;
+    background-size: 340px 170px;
+    background-position: 0px 0, 0px 170px;
+    -webkit-animation: animateBgRight 5s linear infinite;
+            animation: animateBgRight 5s linear infinite;
+    will-change: background-position;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  
+  @-webkit-keyframes animateBg {
+    to {
+      background-position: 0px 0, 0px 170px;
+    }
+  }
+  
+  @keyframes animateBg {
+    to {
+      background-position: 0px 0, 0px 170px;
+    }
+  }
+  @-webkit-keyframes animateBgRight {
+    to {
+      background-position: -170px 0, -170px 170px;
+    }
+  }
+  @keyframes animateBgRight {
+    to {
+      background-position: -170px 0, -170px 170px;
+    }
+  }
+  

@@ -1,0 +1,17 @@
+.topcorner{
+   position:absolute;
+   top:0;
+   right:180px;
+  }
+
+  @media screen and (min-width: 510px) {
+    .cart-responsive{
+      display: none;
+    }
+     
+  }
+  @media screen and (max-width: 510px) {
+.cart{
+    display: none;
+}
+  }

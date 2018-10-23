@@ -1,0 +1,39 @@
+[type=checkbox]:checked, [type=checkbox]:not(:checked) {
+    left: 0px;
+    position: initial;
+    visibility:inherit;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: lightgray;
+  height: 16px;
+  width: 16px;
+  border: 1px solid white;
+}
+input[type="checkbox"]:checked {
+  background: #2aa1c0;
+}
+
+input[type="checkbox"]:hover {
+  filter: brightness(90%);
+}
+input[type="checkbox"]:after {
+  content: '';
+  position: relative;
+  left: 40%;
+  top: 20%;
+  width: 15%;
+  height: 40%;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: none;
+}
+label {
+    font-size: 1.1rem;
+    color : #2f1d1d;    
+}

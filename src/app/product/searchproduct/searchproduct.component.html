@@ -1,0 +1,80 @@
+
+
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <div id="errorDiv" class="form-group" style="background-color: #0d5d17;text-align:center">
+          <h3>
+            <font color="white">{{successMsg}}</font>
+          </h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+			<div class="row isotope-grid" *ngIf="productList">
+
+					<!-- Block2 -->  
+         
+            
+					
+					 <li  *ngFor="let product of (productList | priceFilter:priceMinFilter:priceMaxFilter | paginate: { itemsPerPage: 10, currentPage: p }) let i = index" class="forlist">
+            <div>
+            <div class="img-fluid block2-pic hov-img0" >
+							<img [src]="imgdatapreffix+product.content_type+imgdatasuffix+product.content"  class="forimage " alt="IMG-PRODUCT">
+					
+							<a  class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+				 	<!--  <label *ngIf="product.available_quantity<=10" class="control-label">{{product.available_quantity}}</label><br/> -->
+                    <!-- <label class="control-label">Quantity:</label>
+                    <select name="qty_{{product.id}}" id="qty_{{product.id}}">
+                      <option value="1">1</option>   
+                      <option value="2">2</option>   
+                      <option value="3">3</option>   
+                      <option value="4">4</option>   
+                      <option value="5">5</option>   
+                    </select><br/> -->
+                    <div id='myform'>
+                      <input type='button' value='-' (click)="decrement(product)"  class='qtyminus'>
+                          <input name="qty_{{product.id}}" id="qty_{{product.id}}" type="text"  class="qty" value="{{counter}}" readonly >
+                          <input type='button' value='+' (click)="increment(product)" class='qtyplus'>
+                          
+                        </div>
+                    <button type="button" id="startBtn"   (click)="addToCart(product)" style="height: 40px;
+    width: 110px;" >Add To Cart</button>
+    <!-- <button type="button" id="startBtn" *ngIf="cookieValue=='UNKNOWN'"  [routerLink]="['/login']" style="height: 40px;
+    width: 110px;" >Add To Cart</button> -->
+                        
+							</a>
+						</div>
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a [routerLink]="['/ProductDetailComponent', product.id]"  class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								{{product.name}}
+								<br>
+								<span class="stext-105 cl3">
+									{{getCurrency()}} {{product.price}}
+								</span>
+								</a>
+							</div>
+            </div>
+            </div>
+            </li>
+            
+      </div>
+     
+			
+      </div>
+      <pagination-controls class="pagination-controls" (pageChange)="p = $event"></pagination-controls>
+      <!-- <div id="cart-button">
+        <button style="outline: none;" mat-raised-button color="primary" mat-icon-button id = "cart-button2" [routerLinkActive]="['active']" [routerLink]="['/ordersummary']">          
+          <mat-icon>shopping_cart</mat-icon><app-cart></app-cart>
+        </button>
+      </div>
+   -->
+    <!-- <div class="row">
+      <div class="form-group col-sm-9">
+      </div>
+      <div class="form-group col-sm-3">
+        <button class="orderbutton" type="button" (click)="proceedToOrderSummary()"><span>Proceed To Order Summary</span></button>
+      </div>
+    </div> -->
+

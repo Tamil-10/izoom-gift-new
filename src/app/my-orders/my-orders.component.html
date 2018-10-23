@@ -1,0 +1,43 @@
+<app-header></app-header> 
+<div class="container cont">
+	<div class="row">
+		<div id="albums" class="col-sm-12">
+			<p class="Latest">Orders</p>
+	</div>
+	</div>
+	</div>
+		<!-- <c:if test="${size == 0}"> -->
+			<h2 *ngIf="orderList?.length < 1" class="text-center" id="txxt" >No Previous Orders...</h2>
+		<!-- </c:if> -->
+	
+		<table  *ngIf="orderList?.length > 0" class="responstable">
+			<tr>
+				<th align="center">S.No</th>
+				<th>Product</th>
+				<th class="text-center">Quantity</th>
+				<th class="text-center">Price</th>
+				<th class="text-center">SubTotal</th>
+				<th class="text-center">Status</th>
+			</tr>
+		
+				<tr *ngFor="let order of orderList; let i = index;" style="margin-top: 5px; margin-center: 20px!important"
+					class="item-row">
+					<td>{{ i + 1}}</td>
+					<td style="text-align: center;">{{order.name}}</td>
+					<td style="text-align: center;">{{order.quantity}}</td>				
+					<td style="text-align: center;">&#8377;{{order.price}}</td>
+					<td style="text-align: center;">&#8377;{{order.price * order.quantity}}</td>
+					<td style="text-align: center;">{{order.status}}</td>
+					<!-- <c:if test="${cartitem.days<=0}">
+						<td style="text-align: center; color:#06e20a;">Delivered</td>
+					</c:if>
+					<c:if test="${cartitem.days>=3}">
+						<td style="text-align: center; color:#06e20a;">Shipped</td>
+					</c:if>
+					<c:if test="${cartitem.days>=1 && cartitem.days<=2}">
+						<td style="text-align: center; color:#3e0cf4;">In Transit</td>
+					</c:if> -->
+
+				</tr>
+		
+		</table>

@@ -1,0 +1,60 @@
+<form [formGroup]="priceFilterForm" class="price-filter-form" autocomplete="off" novalidate (ngSubmit)="onSubmit()" >
+
+	
+		<div class="row">
+    
+            <div class="form-group col-sm-8 ">
+    <input  [value]="productPrice" name="pricemin"  id="price-min" class="formcontrol" type="number" [(ngModel)]="priceMinFilter" 
+   	 formControlName="priceMin"  placeholder="Min">
+
+		
+ <input  [value]="productPrice" name="pricemax"  id="price-max" class="formcontrol" type="number" [(ngModel)]="priceMaxFilter" 
+   	 formControlName="priceMax"  placeholder="Max">
+		</div>
+
+		
+		<div class="form-group col-sm-4">
+		
+		<button type="submit" class="form-control"  (click)="onSubmit()">Go</button>
+		</div>
+		</div>
+	
+		
+		
+		<!-- <div>
+		Price From Select
+		<label for="price-min">Min Price</label>
+		<select id="price-min" class="form-control" name="pricemin" [(ngModel)]="priceMinFilter" 
+				formControlName="priceMin">
+			<option value="0">any</option>
+			<option *ngFor="let _priceMin of _priceOptions" [value]="_priceMin.productPrice" >
+			{{getCurrency()}} {{ _priceMin.productPrice}}
+			</option>
+    </select>
+		
+		Price To Select
+		<label for="price-max">Max Price</label>
+		<select id="price-max" class="form-control" name="pricemax" [(ngModel)]="priceMaxFilter" 
+			formControlName="priceMax">
+			<option value="">any</option>
+      <option *ngFor="let _priceMax of maxPriceOptions" [value]="_priceMax.productPrice" >
+				{{getCurrency()}} {{ _priceMax.productPrice}}
+			</option>
+    </select>
+	<button type="submit" class="control" (click)="onSubmit()">Filter by Price!</button>
+		 
+	</div> -->
+	
+	 <!-- <div class="form-group">
+      <label for="brand_select">By Price:</label>
+      <select class="form-control" name="" id="brand_select" [(ngModel)]="selectedPrice">
+        <option *ngFor="let amount of amounts" [ngValue]="amount">{{amount}}</option>
+         <option value="Min" class="OMc8Rd">Under ₹1,000</option>
+            <option value="200" class="OMc8Rd">₹1,000 - ₹5,000</option>
+            <option value="400" class="OMc8Rd">₹5,000 - ₹10,000</option>
+            <option value="700" class="OMc8Rd">₹10,000 - ₹20,000</option>
+            
+      </select>
+    </div> -->
+
+</form>

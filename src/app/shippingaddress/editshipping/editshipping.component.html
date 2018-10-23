@@ -1,0 +1,133 @@
+<app-header></app-header>
+<div class="container">
+	
+		<!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+		
+		<p id="profile-name" class="profile-name-card"></p>
+		
+		<form name="form" (ngSubmit)="f.form.valid && createAddress()" #f="ngForm" novalidate class="form-signin" >
+			<h2>Shipping Address</h2>
+			<br>
+			<span id="reauth-email" class="reauth-email"></span>
+			
+		
+			<div class="form-group col-sm-6" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+				<label class="col-xs-12 control-label" for="name">name</label>
+				<font color="red">*</font>
+				<div class="col-xs-5">
+					<input type="text" placeholder="name" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" required />
+					<div *ngIf="f.submitted && !name.valid" class="help-block">name is required</div>
+				</div>
+				</div>
+				<div class="form-group  col-sm-6" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
+						<label for="address">address</label>
+						<font color="red">*</font>
+						<div class="col-xs-5">	<input  placeholder="address" type="text" class="form-control" name="address" [(ngModel)]="model.address" #address="ngModel" required />
+						<div *ngIf="f.submitted && !address.valid" class="help-block">address is required</div>
+				
+				</div>	</div>
+					<div class="form-group  col-sm-6" [ngClass]="{ 'has-error': f.submitted && !number.valid }">
+						<label for="number">Contact number</label>
+						<font color="red">*</font>
+						<div class="col-xs-5">
+						<input  placeholder="number" type="number" class="form-control" name="number" [(ngModel)]="model.contactnumber" #number="ngModel" required />
+						<div *ngIf="f.submitted && !address.valid" class="help-block">number is required</div>
+				</div>	</div>
+			
+			<!-- <div id="remember" class="checkbox">
+				<label>
+					<input type="checkbox" value="remember-me"> Remember me
+				</label>
+			</div>  -->
+			<div class="form-group col-sm-6">
+					<button  class="btn btn-success" [disabled]="f.invalid ||loading">ADD ADDRESS<i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>				
+					
+				</div>			
+		</form>
+
+	<!-- /card-container -->
+</div><!-- /container -->
+
+
+
+
+
+
+<br><br>
+<!-- 
+
+<div class="container-fluid h-100">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+
+		<form action="updateAdd" method="post" class="form-horizontal"
+			onsubmit="return formShiping()">
+
+	<div style="margin-top: 50px;" class="mainbox col-xs-6 col-xs-offset-3">
+		<div class="flexbox ">
+      
+			<div >
+				<div style="font-size: 25px;" >Shipping
+					Address</div>
+			</div>
+
+			<div style="padding-top: 30px" class="card-block">
+
+				<div style="display: none" id="login-alert"
+					class="alert alert-danger col-sm-12"></div>
+			
+					<div class="form-group">
+						<label class="col-xs-3 control-label">Address</label>
+						<div class="col-xs-9">
+							<input type="address" id="address" class="form-control"
+								value="${ship.address }" name="address"
+								placeholder="Enter Address" readonly>
+						</div>
+					</div>
+		
+					<div class="form-group">
+						<label class="col-xs-3 control-label">Address</label>
+						<div class="col-xs-9">
+							<input type="address" id="address" class="form-control"
+								value="${ship.address }" name="address"
+								placeholder="Enter Address">
+						</div>
+					</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label">Address</label>
+					<div class="col-xs-9">
+						<input type="address" id="address" class="form-control"
+							value="${ship.address }" name="address"
+							placeholder="Enter Address">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label">Address</label>
+					<div class="col-xs-9">
+						<input type="address" id="address" class="form-control"
+							value="${ship.address }" name="address"
+							placeholder="Enter Address">
+					</div>
+				</div>
+			
+					<div class="form-group">
+						<!-- Button -->
+						<!-- <div class="col-xs-offset-5 col-xs-2 col-xs-offset-5">
+							<button type="submit" class="btn btn-info">Add Address</button>
+						</div>
+					</div>
+			
+					<div class="form-group">
+						<!-- Button -->
+						<!-- <div class="col-xs-offset-5 col-xs-2 col-xs-offset-5">
+							<button type="submit" class="btn btn-info">Update
+								Address</button>
+						</div>
+					</div>
+			
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+</div></div> --> 

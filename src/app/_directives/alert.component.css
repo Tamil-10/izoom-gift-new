@@ -1,0 +1,8 @@
+#alert-msg{
+    left: 35%;
+    top: 90px;
+    width: 30%;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    position: relative;
+}

@@ -1,0 +1,37 @@
+<form (ngSubmit)="onSubmit(createeditform)" #createeditform="ngForm">
+  <div class="modal-body">
+    <div class="well">
+      <div class="row">
+        <div class="form-group col-sm-3">
+          <select class="form-control" name="status" (change)=retrievePollList($event.target.value)>
+              <option value="Not Published">Not Published</option>
+              <option value="Published" selected>Published</option>
+              <option value="Closed">Closed</option>
+                <option value="Deleted">Deleted</option>
+            </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-12">
+          <div class="form-group">
+            <table class="form-control">
+              <tr>
+                <th width="23%">Poll Id</th>
+                <th width="50%">Questions</th>
+                <th width="23%">Status</th>
+                <th width="23%">Remove</th>
+              </tr>
+              <tr *ngFor="let poll of polllist">
+                <td> <a routerLink="/pollconfigupdate" [queryParams]="{ pollId: poll.id }"> {{poll.id}}</a></td>
+                <td>{{poll.question}}</td>
+                <td>{{poll.status}}</td>
+                <td *ngIf="poll.status==='Not Published'"> <button type="button" (click)="remove(poll)"> Remove</button></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>

@@ -1,0 +1,17 @@
+
+# dependencies 
+/node_modules
+
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+
+
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+

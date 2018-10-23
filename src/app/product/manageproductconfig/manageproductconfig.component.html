@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit(createeditform)" #createeditform="ngForm">
+  <div class="modal-body">
+    <div class="well">
+      <div class="row">
+        <div class="form-group col-sm-12">
+          <div class="form-group">
+            <table class="form-control">
+              <tr>
+                <th width="20%">Id</th>
+                <th width="30%">Name</th>
+                <th width="50%">Description</th>
+                <th width="20%">Remove</th>
+              </tr>
+              <tr *ngFor="let product of productList | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td> <a routerLink="/productconfig" [queryParams]="{ product: product.id }"> {{product.id}}</a></td>
+                <td>{{product.name}}</td>
+                <td>{{product.description}}</td>
+                <td> <button type="button" (click)="remove(product)"> Remove</button></td>
+              </tr>
+            </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

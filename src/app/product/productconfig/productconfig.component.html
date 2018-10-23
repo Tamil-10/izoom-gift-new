@@ -1,0 +1,129 @@
+<form (ngSubmit)="onSubmit(createeditform)" #createeditform="ngForm">
+  <div class="modal-body">
+    <div class="well">
+      <div class="row">
+        <div class="form-group col-sm-12">
+          <div id="errorDiv" class="form-group" style="background-color: #0d5d17;text-align:center">
+            <h3>
+              <font color="white">{{successMsg}}</font>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+      <div class="form-group col-sm-1">
+        </div>
+       
+       <div class="form-group col-sm-4">
+          <div class="form-group">
+            <label class="control-label" for="productname">Product Name</label>
+            <font color="red">*</font>
+            <input type="text" class="form-control" name="productName" placeholder="Enter Product Name" [(ngModel)]="product.name" required>
+          </div>
+        </div>
+        <div class="form-group col-sm-1">
+        </div>
+        <div class="form-group col-sm-4">
+          <div class="form-group">
+            <label class="control-label" for="productquantity">Product Quantity</label>
+            <font color="red">*</font>
+            <input type="text" class="form-control" name="productQuantity" placeholder="Enter Product Quantity" [(ngModel)]="product.available_quantity"
+              required (keypress)="numberOnly($event)">
+          </div>
+        </div>
+       
+      </div>
+
+      <div class="row">
+      
+         <div class="form-group col-sm-1">
+        </div>
+        <div class="form-group col-sm-4">
+          <div class="form-group">
+            <label class="control-label" for="productprice">Product Price</label>
+            <font color="red">*</font>
+            <input type="text" class="form-control" name="productPrice" placeholder="Enter Product Price" [(ngModel)]="product.price"
+              required (keypress)="numberOnly($event)">
+          </div>
+        </div>
+        
+         <div class="form-group col-sm-1">
+        </div>
+        <div class="form-group col-sm-4">
+          <div class="form-group">
+            <label class="control-label" for="productdescription">Product Description</label>
+            <font color="red">*</font>
+            <input type="text" class="form-control" name="productDescription" placeholder="Enter Product Description" [(ngModel)]="product.description"
+              required>
+          </div>
+        </div>
+      </div>
+      <div class="row">   
+              
+      </div>
+     
+      <div class="row">
+      <div class="form-group col-sm-1">
+      </div>
+       <div class="form-group col-sm-4">
+          <div class="form-group">
+            <label  for="productType" class="control-label ">Product Type</label>
+            <font color="red">*</font>
+           <!--   <ng-multiselect-dropdown
+  [placeholder]="'Product Type List'"
+  [data]="productType"
+  [(ngModel)]="selectedproduct"
+  [settings]="dropdownSettings"
+  (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onSelectAll($event)"
+  [ngModelOptions]="{standalone: true}"
+>
+</ng-multiselect-dropdown> -->
+
+ 
+     <div *ngFor="let product of productType" >
+ <input type="checkbox"  [value]="product.id" [(ngModel)]="product.isSelected"   [ngModelOptions]="{standalone: true}" required >&nbsp;<b>{{product.name}}</b>
+ </div>
+    
+            <!-- <input type="text" class="form-control" name="productType" placeholder="Enter Product Type" [(ngModel)]="product.type" required> -->
+          </div>
+        </div>
+         <div class="form-group col-sm-1">
+      </div>
+       <div class="form-group col-sm-4">
+          <div class="form-group">
+            <label  for="productType" class="control-label ">Gender Type</label>
+            <font color="red">*</font>
+            <div *ngFor="let gender of genderType" >
+ <input type="checkbox"  [value]="gender.id" [(ngModel)]="gender.isSelected"   [ngModelOptions]="{standalone: true}" required >&nbsp;<b>{{gender.name}}</b>
+ </div>
+ </div>
+ </div>        
+      </div>
+       <div class="row">
+      <div class="form-group col-sm-1">
+        </div>
+        <div class="form-group col-sm-8">
+          <div class="form-group">
+            <label class="control-label" for="productfile">Select Product Image</label>
+            <font color="red">*</font>
+            <input type="file" name="productImage" accept="image/*" (change)="onFileChange($event)" #fileInput> <button type="button"
+              class="btn btn-sm btn-default" (click)="clearFile()">Clear Image</button>
+            <div id="errorDiv">
+              <font color="red">{{errorMsg}}</font>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-8">
+        </div>
+        <div class="form-group col-sm-2">
+          <button class="corner" type="submit" [disabled]="createeditform.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+          <button class="corner" type="reset"  class="btn btn-success">Reset </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

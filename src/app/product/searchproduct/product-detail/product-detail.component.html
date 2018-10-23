@@ -1,0 +1,56 @@
+<app-header></app-header>
+<div class="row">
+  <div class="form-group col-sm-12">
+    <div id="errorDiv" class="form-group" style="background-color: #0d5d17;text-align:center">
+      <h3>
+        <font color="white">{{successMsg}}</font>
+      </h3>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container" *ngFor = "let product of productList">
+      <div class="row" *ngIf = "product.id == this.productId">
+      
+        <div class="col-sm-5 single-top">
+        <div class="view hm-zoom z-depth-2" style="cursor: pointer">
+            <img [src]="imgdatapreffix+product.content_type+imgdatasuffix+product.content" [alt]="productName" width="100%" class="img-fluid">
+          </div>
+       </div>
+
+       <div class="col-sm-6">
+         <div class="single-para">
+         
+            <h4 class="product-head">{{product.name}}</h4>
+       						
+           <h5 class="item_price">Rs.{{product.price}}</h5>							
+           <p class="para">{{product.description}} </p>
+          
+           <div class="check">
+            <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>No. of quantity available : {{product.available_quantity}}</p>
+            <div id='myform'>
+                <input type='button' value='-' (click)="decrement(product)" class='qtyminus'>
+                <!-- name="qty_{{product.id}}" id="qty_{{product.id}}" -->
+                <input name="qty_{{product.id}}" id="qty_{{product.id}}" type="text"  class="qty" value="{{counter}}" readonly >
+                    <input type='button' value='+' (click)="increment(product)" class='qtyplus'>
+                    
+                  </div>
+             </div>
+             <br>
+             <button class="btn btn-default add-to-cart" type="button" id="startBtn"  (click)="addToCart(product)" ><i class="fa fa-shopping-cart"></i>Add To Cart</button>
+           
+           			
+        
+          
+      <div class="clearfix"> </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <!-- <div id="cart-button">
+      <button style="outline: none;" mat-raised-button color="primary" mat-icon-button id = "cart-button2" [routerLinkActive]="['active']" [routerLink]="['/ordersummary']">          
+        <mat-icon>shopping_cart</mat-icon><app-cart></app-cart>
+      </button>
+    </div> -->
+  
